@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支出一覧 - 深井家家計簿</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Firebase SDK の読み込み -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← トップに戻る</a>
+            <h1 id="list-title">支出一覧</h1>
+        </header>
+
+        <main>
+            <div class="table-container">
+                <table class="responsive-table" id="expense-list-table">
+                    <thead>
+                        <tr>
+                            <th>日付</th>
+                            <th>カテゴリ</th>
+                            <th>金額</th>
+                            <th>メモ</th>
+                            <th>支払方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- JavaScriptで動的に生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    
+    <script src="list.js"></script>
+</body>
+</html>
