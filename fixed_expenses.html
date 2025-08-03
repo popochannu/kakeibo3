@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定支出の管理 - 深井家家計簿</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="toast-container"></div>
+
+    <header class="header">
+        <h1>固定支出の管理</h1>
+        <nav class="main-nav">
+            <a href="index.html">サマリー</a>
+            <a href="list.html">変動支出一覧</a>
+            <a href="fixed_expenses.html" class="active">固定支出の管理</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- 固定支出の入力・編集フォーム -->
+        <section class="form-section">
+            <h2 id="fixed-expense-form-title">固定支出を追加</h2>
+            <form id="fixed-expense-form" novalidate>
+                <input type="hidden" id="fixed-expense-id">
+                <div class="form-group">
+                    <label for="fixed-expense-name">項目名</label>
+                    <input type="text" id="fixed-expense-name" placeholder="例: 家賃" required>
+                </div>
+                <div class="form-group">
+                    <label for="fixed-expense-amount">月額</label>
+                    <input type="number" id="fixed-expense-amount" placeholder="例: 80000" required min="0" inputmode="numeric">
+                </div>
+                <div class="form-group">
+                    <label for="fixed-expense-payer">支払者</label>
+                    <select id="fixed-expense-payer" required>
+                        <option value="浩介">浩介</option>
+                        <option value="真由">真由</option>
+                        <option value="共有">共有</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">保存する</button>
+                    <button type="button" id="cancel-edit-btn" class="btn btn-link" style="display: none;">キャンセル</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- 固定支出の一覧 -->
+        <section class="list-section">
+            <h2>固定支出一覧</h2>
+            <div class="list-container">
+                <table class="list-table" id="fixed-expense-list-table">
+                    <thead>
+                        <tr>
+                            <th>項目名</th>
+                            <th>月額</th>
+                            <th>支払者</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fixed-expense-list-body">
+                        <!-- JSで動的に生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Firebase SDK & App JS -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

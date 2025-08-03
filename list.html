@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>変動支出一覧 - 深井家家計簿</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="toast-container"></div>
+    <header class="header">
+        <h1>変動支出一覧</h1>
+        <nav class="main-nav">
+            <a href="index.html">サマリー</a>
+            <a href="list.html" class="active">変動支出一覧</a>
+            <a href="fixed_expenses.html">固定支出の管理</a>
+        </nav>
+        <div class="month-selector">
+            <button id="prev-month-btn">< 前の月</button>
+            <h2 id="current-month-display"></h2>
+            <button id="next-month-btn">次の月 ></button>
+        </div>
+    </header>
+    <main class="container">
+        <section>
+            <p class="section-note">各行の右側にあるボタンから、データの編集や削除ができます。</p>
+            <div class="list-container">
+                <table class="list-table" id="expense-list-table">
+                    <!-- ...テーブルヘッダー (内容は変更なし) -->
+                    <tbody id="expense-list-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <!-- ...編集用モーダル (内容は変更なし) -->
+    <!-- SDK & JS -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
